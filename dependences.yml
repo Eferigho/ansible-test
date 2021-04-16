@@ -33,16 +33,17 @@
     apt:
       name: kubeadm
       state: present
- 
-- hosts: test-host
+      
+- hosts: masters
   become: yes
   tasks:
   - name: install kubectl
     apt:
       name: kubectl
       state: present
-      
-- hosts: test-host
+
+
+- hosts: masters
   become: yes
   tasks:
   - name: remove swap
@@ -77,7 +78,7 @@
       chdir: $HOME
       creates: pod_network_setup.txt
   
-- hosts: test-host
+- hosts: masters
   become: yes
   gather_facts: false
   tasks:
@@ -96,7 +97,12 @@
     shell: "swapoff -a"
  
   - name: join cluster	
-    shell: "{{ hostvars['test-host'].join_command }} >> node_joined.txt"
+    shell: "{{ hostvars['masters'].join_command }} >> node_joined.txt"
     args:
       chdir: $HOME
-      creates: node_joined.txt 
+      creates: node_joined.txt  
+  
+ 
+
+ 
+ 
