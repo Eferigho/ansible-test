@@ -4,3 +4,6 @@ test-host ansible_host=172.31.79.192 ansible_user=ubuntu
 [workers]
 test-node01  ansible_host=172.31.76.63 ansible_user=ubuntu
 test-node02 ansible_host=172.31.66.20 ansible_user=ubuntu
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
