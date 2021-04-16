@@ -1,9 +1,9 @@
 [masters]
-test-host ansible_host=172.31.73.125 ansible_user=ubuntu
+kube-host ansible_host=172.31.73.44 ansible_user=ubuntu
 
 [workers]
-test-node01  ansible_host=172.31.69.109 ansible_user=ubuntu
-test-node02 ansible_host=172.31.64.18 ansible_user=ubuntu
+kube-node01  ansible_host=172.31.64.198 ansible_user=ubuntu
+kube-node02 ansible_host=172.31.77.246 ansible_user=ubuntu
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
